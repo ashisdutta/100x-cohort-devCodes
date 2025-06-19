@@ -14,6 +14,7 @@ try {
 } catch(e){
     console.log("error occured");
 }
+
 //-------------------  try - catch --------------
 
 try{
