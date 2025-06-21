@@ -1,0 +1,16 @@
+// adding element - > create element , append child
+
+<html>
+    <body>
+        <div id="firstDiv">
+            <h4>hi there</h4>
+        </div>
+    </body>
+
+    <script>
+        const newElement = document.createElement("div")
+        newElement.innerHTML = "hi there 2"
+        const parentElement = document.querySelector("body")
+        parentElement.appendChild(newElement)
+    </script>
+</html>

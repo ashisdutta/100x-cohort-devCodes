@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <h2>Javascript HTML DOM</h2>
+        <p>Finding HTML element by class name.</p>
+        <p class="intro">Hello World!</p>
+        <p class="intro">This example demonstrates the <b>getElementByClassName</b> Method.
+        </p>
+        <p id="demo"></p>
+
+        <script>
+            const x = document.getElementsByClassName("intro");
+            document.getElementById("demo").innerHTML = 'the first paragraph (index) with class="intro" is: ' + x[0].innerHTML;
+        </script>
+    </body>
+</html>

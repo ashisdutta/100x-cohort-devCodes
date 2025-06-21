@@ -1,0 +1,25 @@
+// delete -> removeChild()
+
+
+// using querySelector() delete elements one by one
+<html>
+    <body>
+        <div id="tasks">
+            <h4>1. task1</h4>
+            <h4>2. task2</h4>
+            <h4>3. task3</h4>
+        </div>
+        <div>
+            <button onclick="elementDelete()">delete</button>
+        </div>
+    </body>
+
+    <script>
+        function elementDelete(){
+            const element = document.querySelector("h4");
+            const parentElement = element.parentNode;
+            parentElement.removeChild(element);
+
+        }
+    </script>
+</html>

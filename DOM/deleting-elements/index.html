@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <div>
+            <div id="todo-1">
+                <h4>1. adding task 1</h4>
+                <button onclick="deleteTodo(1)"> delete </button>
+            </div>
+
+            <div id="todo-2">
+                <h4>2. adding task 2</h4>
+                <button onclick="deleteTodo(2)"> delete </button>
+            </div>
+
+            <div>
+                <input type="text">
+                <button>add todo</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function deleteTodo(index){
+            const element = document.getElementById("todo-"+index);
+            element.parentElement.removeChild(element);
+        }
+    </script>
+</html>
