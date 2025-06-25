@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>state-component</title>
+    </head>
+
+    <body>
+        <input type="text">
+        <button onclick="addtodo()">add todo</button>
+
+        <div id="new-task"></div>
+    </body>
+
+    <script>
+        let todos = [];
+
+        function addtodo(){
+            todos.push({
+                title: document.querySelector("input").value
+            })
+            rander()
+        }
+
+        function deleteTodo(index){
+            todos.splice(index, 1);
+            rander()
+        }
+
+        function createTodoComponent(todo, index){
+            const newDiv = document.createElement("div");
+            const createh1 = document.createElement("h1")
+            const createButton = document.createElement("button")
+            createButton.innerHTML="delete";
+            createButton.onclick = function(){
+                deleteTodo(index);
+            }
+
+            createh1.innerHTML = todo.title;
+
+            newDiv.appendChild(createh1)
+            newDiv.appendChild(createButton)
+
+            return newDiv;
+            
+        }
+
+
+        function rander(){
+            document.querySelector("#new-task").innerHTML="";
+            for(let i =0; i<todos.length; i++){
+                const element = createTodoComponent(todos[i], i);
+                document.querySelector("#new-task").appendChild(element);
+            }
+        }
+
+
+    </script>
+</html>

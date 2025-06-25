@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>delete-prebuild-task</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1>TODO LIST</h1>
+        <div id="mainDiv">
+            <div id="todo-1">
+                <h2>1. task number one</h2>
+                <button onclick="deleteTodo(1)">delete</button>
+            </div>
+
+            <div id="todo-2">
+                <h2>2. task number Two</h2>
+                <button onclick="deleteTodo(2)">delete</button>
+            </div>
+        </div>
+
+        <div>
+            <input type="text">
+            <button onclick="addtodo()">add todo</button>
+        </div>
+    </body>
+
+
+
+    <script>
+        let counter = 2;
+        function deleteTodo(index){
+            const element = document.getElementById("todo-"+ index);
+            document.getElementById("mainDiv").removeChild(element);
+            counter--;
+        }
+ 
+        function addtodo(){
+            const getInput = document.querySelector("input").value;
+            counter++;
+
+            const createDiv = document.createElement("div")
+            createDiv.id = "todo-"+counter;
+
+            const newh2 = document.createElement("h2");
+            newh2.innerHTML = `${counter}. ${getInput}`;
+
+            const newButton = document.createElement("button");
+            newButton.innerHTML = "delete";
+
+            newButton.onclick = function(){
+                deleteTodo(counter);
+            }
+
+            createDiv.appendChild(newh2);
+            createDiv.appendChild(newButton);
+            document.getElementById("mainDiv").appendChild(createDiv);
+        }
+    </script>
+</html>
