@@ -14,7 +14,7 @@
 
             const createDiv = document.createElement("div")
             createDiv.setAttribute("id", "todo-" + ctr)
-            const valueInsert = createDiv.innerHTML = "<div>" + value + '</div><button onclick = "deleteTodo('+ ctr +')">delete</button>'
+            const valueInsert = createDiv.innerHTML = "<div>" + ctr+ ". " + value + '</div><button onclick = "deleteTodo('+ ctr +')">delete</button>'
 
             document.querySelector("body").appendChild(createDiv);
             ctr++;

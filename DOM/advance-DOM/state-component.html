@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <input type="text">
+        <button onclick="addTodo">add todo</button>
+    </body>
+
+
+    <script>
+        let todos = []; let ctr = 0;
+        function addTodo(){
+            todos.push({
+                id : ++ctr,
+                title : document.querySelector("input").value
+            })
+
+            render ()
+        }
+
+
+    </script>
+</html>
