@@ -12,7 +12,7 @@ function App() {
       <div>
         <PostComponent></PostComponent><br />
         <PostComponent></PostComponent><br />
-        <PostComponent></PostComponent><br />
+        <ProfileComponent></ProfileComponent>
       </div>
     </div>
   )
@@ -56,5 +56,26 @@ function PostComponent(){
 
 }
 
+const profileDivStyle = {width:200, backgroundColor:"white", borderRadius:10, textAlign:"center",}
+const pMargin = {margin:0, paddingBottom:"10px"}
+
+function ProfileComponent(){
+  
+  return <div style={profileDivStyle}>
+    <div>
+      <img style={{borderRadius:"50%", height:50, width:50, marginTop:20, marginBottom:20}} src="https://media.licdn.com/dms/image/v2/D4D03AQEg0YrGtxFTvA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1698559589611?e=1758153600&v=beta&t=nJ_FuCCb0_xN7VwY1Y_x2a8lp0nCnQjB8ql3XfmHikY" /> <br />
+      <b style={pMargin}>Ashis Dutta</b>
+      <p style={pMargin}>working with WebRTC</p>
+      <div style={{display:"flex", justifyContent:"space-between", padding:"0 10px 0 10px"}}>
+        <p style={pMargin}>profile viewers</p>
+        <p style={pMargin}>41,902</p>
+      </div>
+      <div style={{display:"flex", justifyContent:"space-between", padding:"0 10px 0 10px"}}>
+        <p style={pMargin}>Post impressions</p>
+        <p style={pMargin}>1,313</p>
+      </div>
+    </div>
+  </div>
+}
 
 export default App
