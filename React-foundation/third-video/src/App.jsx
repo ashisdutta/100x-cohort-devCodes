@@ -8,7 +8,7 @@ function App(){
   return (
     <div style={{backgroundColor:"#dfe6e9", height:"100vh", display:"flex", justifyContent:"center"}}>
       <ToggleMessage/>
-      <div>
+      <div style={{marginTop:100 }}>
         <PostComponent
         name={"harkirat"}
         subtitle={"20 followers"}
