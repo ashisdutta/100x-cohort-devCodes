@@ -8,9 +8,13 @@ function App(){
   </div>
 }
 
+
+
+
+
 function BallIcon(props){
-  function addNo(){
-    
+  
+  function addNo(){ 
     props.setCount(props.count+1);
   }
   
