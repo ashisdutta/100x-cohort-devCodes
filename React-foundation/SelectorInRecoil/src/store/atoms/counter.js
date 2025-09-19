@@ -12,4 +12,4 @@ export const evenSelector = selector({
         const isEven = (currentCount % 2 == 0);
         return isEven;
     }
-}) 
+})  
