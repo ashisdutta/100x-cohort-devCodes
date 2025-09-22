@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+
+.card{
+    height: 400px;
+    width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+}
+
+.top-card{
+    height: 150px;
+    background: aquamarine;
+}
+.bottom-card{
+    height: calc(100%-150px);
+    background-color: #fff;
+    padding-top: 40px;
+}
+
+.profilePic { position: absolute;
+    top: calc(150px - 50px);
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    border: 4px solid white; 
+    object-fit: cover; 
+}
+
+.social{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+}
+
+.age{
+    margin-left:5px ;
+}
+.location{
+    display: flex;
+    justify-content: center;
+}
+
+.inside-social{
+    margin: 0;
+    padding: 0;
+}
+.social h2 {
+  margin: 0;           /* kill default bottom margin */
+}
+
+.social p {
+  margin: 0;           /* kill default top margin */
+  font-size: 0.9rem;   /* optional: make labels smaller */
+  color: #666;         /* optional: softer color */
+}
