@@ -1,0 +1,32 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.body-class{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.color-bar{
+  height: 40px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+
+}
+
+.color-bar button{
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 0px;
+}
