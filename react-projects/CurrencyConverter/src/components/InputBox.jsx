@@ -11,7 +11,7 @@ function InputBox({
     return(
         <div className="main-component">
             <div className="amountSection">
-                <label>{label} label </label>
+                <label>{label}</label>
                 <input 
                 type="number"
                 placeholder="Amount"
@@ -28,10 +28,10 @@ function InputBox({
                 >
 
                     {currencyOptions.map((item)=>{
-                        <option key={item} value={item}>{item}</option>
+                        return <option key={item} value={item}>{item}</option>
                     })}
                 </select>
-            </div>
+            </div> 
         </div>
     )
 }
