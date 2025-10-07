@@ -6,6 +6,21 @@ import { Todos } from './components/Todos'
 function App() {
   const [todos, setTodos] = useState([]);
 
+  async function onComplete(id){
+    await fetch("http://localhost:3000/completed", {
+      method: "PUT",
+      body: JSON.stringify({
+        id: id,
+      }),
+      headers: {
+        "content-Type":"application/json"
+      }
+    })
+  }
+
+
+
+
   useEffect(()=>{
     fetch("http://localhost:3000/todos")
     .then((async (res)=>{
@@ -17,7 +32,7 @@ function App() {
   return (
     <div>
       <CreateTodo/>
-      <Todos todos={todos}/>
+      <Todos todos={todos} onComplete={onComplete}/>
     </div>
   )
 }
