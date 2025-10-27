@@ -14,8 +14,9 @@ const signupSchema = zod.object({
     lastName: zod.string()
 })
 
-router.get("/signup", async (req, res)=>{
+router.post("/signup", async (req, res)=>{
     const body = req.body;
+    console.log(body)
     const {success} = signupSchema.safeParse(body);
     if(!success){
         return res.json({
@@ -24,7 +25,7 @@ router.get("/signup", async (req, res)=>{
     }
 
     const user =await User.findOne({
-        username:body.username
+        userName:body.userName
     })
     if(user){
         return res.json({
