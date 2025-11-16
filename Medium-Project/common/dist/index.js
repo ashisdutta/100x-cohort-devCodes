@@ -22,4 +22,3 @@ export const updateBlogInput = z.object({
     title: z.string(),
     content: z.string()
 });
-//# sourceMappingURL=index.js.map

@@ -3,9 +3,9 @@ import z from "zod";
 //         backend will need
 //             Signup
 export const signupInput = z.object({
-    email: z.email(),
-    password: z.string().min(8),
-    name: z.string().optional()
+        email: z.email(),
+        password: z.string().min(8),
+        name: z.string().optional()
 })
 
 //             Signin
