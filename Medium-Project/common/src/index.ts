@@ -1,36 +1,32 @@
-import z from "zod";
+// src/index.ts
+import { z } from "zod";
 
-//         backend will need
-//             Signup
+/* ---------------- runtime schemas ---------------- */
 export const signupInput = z.object({
-        email: z.email(),
-        password: z.string().min(8),
-        name: z.string().optional()
-})
+    email: z.string().email(),
+    password: z.string().min(8),
+    name: z.string().optional(),
+});
 
-//             Signin
 export const signinInput = z.object({
-        email: z.email(),
-        password: z.string().min(8)
-})
+    email: z.string().email(),
+    password: z.string().min(8),
+});
 
-//           create blog/post
 export const createBlogInput = z.object({
-        title: z.string(),
-        content: z.string()
-})
+    title: z.string(),
+    content: z.string(),
+});
 
-//           updateBLogInput
 export const updateBlogInput = z.object({
-        id: z.string(),
-        title: z.string(),
-        content: z.string()
-})
+    id: z.string(),
+    title: z.string(),
+    content: z.string(),
+});
 
-
-//       my frontend will need
-//type inference in zod
-export type SignupInput = z.infer<typeof signupInput>
-export type SigninInput  = z.infer<typeof signinInput>
-export type CreateBlogInput  = z.infer<typeof createBlogInput>
-export type UpdateBlogInput  = z.infer<typeof updateBlogInput>
+/* ---------------- exported TS types ---------------- */
+// these are compile-time only, but exported so consumers get hover/inference
+export type SignupInput = z.infer<typeof signupInput>;
+export type SigninInput = z.infer<typeof signinInput>;
+export type CreateBlogInput = z.infer<typeof createBlogInput>;
+export type UpdateBlogInput = z.infer<typeof updateBlogInput>;
