@@ -20,8 +20,8 @@ blogRouter.use('/*', async (c ,next)=>{
         const header = c.req.header("Authorization") || ""; // to ignore undefined if user sends nothing
         
         // token => ["Bearer", "token"]
-        const token = header.split(" ")[1]
-        const payload = await verify(token, c.env.JWT_SECRET);
+        //const token = header.split(" ")[1]
+        const payload = await verify(header, c.env.JWT_SECRET);
 
         if(payload){
             c.set('userId', String(payload.id));
@@ -101,10 +101,21 @@ blogRouter.get("/bulk", async (c)=>{
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
-    const allBlogPosts = await prisma.post.findMany();
+    const blogs = await prisma.post.findMany({
+        select:{
+            id:true,
+            title:true,
+            content: true,
+            author:{
+                select: {
+                    name: true
+                }
+            }
+        }
+    });
 
     return c.json({
-        allBlogPosts
+        blogs
     })
 })
 
@@ -118,14 +129,24 @@ blogRouter.get("/:id", async (c)=>{
     const id = c.req.param("id");
 
     try {
-        const post = await prisma.post.findFirst({
+        const blog = await prisma.post.findFirst({
             where:{
                 id:id
+            },
+            select:{
+                id: true,
+                title: true,
+                content: true,
+                author:{
+                    select:{
+                        name:true
+                    }
+                }
             }
         })
 
         return c.json({
-            post
+            blog
         })
     } catch (error) {
         c.status(411);
