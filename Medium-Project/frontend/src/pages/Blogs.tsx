@@ -28,7 +28,7 @@ export const Blogs = () =>{
                     content={blog.content}
                     key={blog.id}
                     id={blog.id}
-                    publishedDate={"2nd feb 2025"}
+                    publishedDate={"18th Nov 2025"}
                 />)
                 }
             </div>

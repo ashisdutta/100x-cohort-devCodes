@@ -17,8 +17,9 @@ export const Auth = ({type}: {type:"signup" | "signin"}) => {
     async function sendRequest() {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type==="signup"?"signup":"signin"}`, postInputs);
-            const { token } = response.data;
+            const { token, name } = response.data;
             localStorage.setItem("token", token);
+            localStorage.setItem("name", name);  
             navigate("/blogs");
         } catch (error) {
             alert("request failed")
@@ -60,7 +61,7 @@ export const Auth = ({type}: {type:"signup" | "signin"}) => {
                             })
                         }}/>
 
-                        <button onClick={sendRequest} type="button" className="text-white bg-gray-900 box-border border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mt-6 w-full rounded-lg">{type=== "signup"?"signup":"signin"}</button>
+                        <button onClick={sendRequest} type="button" className="text-white bg-gray-900 box-border border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mt-6 w-full rounded-lg cursor-pointer">{type=== "signup"?"signup":"signin"}</button>
                 </div>
             </div>
         </div>
