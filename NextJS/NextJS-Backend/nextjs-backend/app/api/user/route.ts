@@ -5,6 +5,7 @@ import { PrismaPg } from '@prisma/adapter-pg'
 const adapter = new PrismaPg({
     connectionString: process.env.DATABASE_URL,
 })
+const ALLOWED_ORIGIN = "http://localhost:5173"; // your React app URL
 
 const client = new PrismaClient({
     adapter,
