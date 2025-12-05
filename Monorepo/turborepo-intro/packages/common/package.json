@@ -1,0 +1,20 @@
+{
+  "name": "@repo/common",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "exports":{
+    ".": "./src/index.ts", 
+    "./config": {
+      "import": "./src/config.ts", 
+      "types": "./src/config.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
