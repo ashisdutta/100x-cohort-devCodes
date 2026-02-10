@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+   EMPLOYEE
+   ADMIN
+}
+
+enum Category {
+  IT
+  HR
+  SALE
+}
+
+enum Status {
+  OPEN
+  IN_PROGRESS
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  name String
+  email String? @unique
+  password String 
+  role Role @default(EMPLOYEE)
+  ticket Ticket[]
+  comment Comment[]
+}
+
+model Ticket{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  status Status @default(OPEN)
+  priority Priority @default(LOW)
+  category Category 
+  
+  AuthorId Int
+  Author User @relation(fields: [AuthorId], references: [id], onDelete: Cascade)
+
+  CreateAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+
+  comment Comment[]
+}
+
+
+model Comment{
+  id Int @id @default(autoincrement())
+  content String
+
+  TicketId Int
+  Ticket Ticket @relation(fields: [TicketId], references: [id], onDelete: Cascade)
+
+  AuthorId Int
+  Author User @relation(fields: [AuthorId], references: [id], onDelete: Cascade)
+  
+  CreateAt DateTime @default(now())
+}

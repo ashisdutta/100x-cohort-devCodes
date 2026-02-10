@@ -1,0 +1,23 @@
+# FROM node:22-alpine
+
+FROM node:22-slim
+
+
+WORKDIR /app
+
+# 1. Install Dependencies
+COPY package.json package-lock.json* ./
+
+RUN npm install
+
+# 2. Prisma Setup (Crucial Step)
+# Copy the schema and generate the client BEFORE copying the rest of the code
+COPY prisma ./prisma/
+RUN npx prisma generate
+
+# 3. Copy Code
+# Technically optional if you use Volumes in docker-compose, but good for safety
+COPY . .
+
+# 4. Start Development Server
+CMD ["npm", "run", "dev"]
